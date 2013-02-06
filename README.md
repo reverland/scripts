@@ -5,7 +5,7 @@
 
 * renren.py
   - A script to visualize renren friendship
-    dependencies: networkx matplotlib
+  - Dependencies: networkx matplotlib
 * tagcloud.py 
   - Visualize command history as cloud tags
-    optional-dependencies: pytagcloud
+  - Optional-dependencies: pytagcloud

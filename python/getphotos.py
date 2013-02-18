@@ -19,10 +19,7 @@ import re
 __author__ = '''Reverland (lhtlyy@gmail.com)'''
 
 
-def download_my_photos():
-    username = '****'
-    password = '****'
-    uid = login(username, password)
+def download_my_photos(uid):
     get_photos(uid)
     return 1
 
@@ -78,3 +75,11 @@ def login(username, password):
     # print uid
     print "Login and got uid successfully"
     return uid
+
+
+# Notice:You must login first!!!!!!!!
+if __name__ == '__main__':
+    username = '****'
+    password = '****'
+    uid = login(username, password)
+    download_my_photos(uid)

@@ -20,16 +20,16 @@ import matplotlib.pyplot as plt
 
 __author__ = """Reverland (lhtlyy@gmail.com)"""
 
-# Control parameters,EDIT it here
+# Control parameters,EDIT here!
 ## Login
-username = 'None'
-password = 'None'
+USERNAME = '***'
+PASSWORD = '***'
 ## Control Graphs, Edit for better graphs as you need
-label_flag = True  # Whether shows labels.NOTE: configure your matplotlibrc for Chinese characters.
-remove_isolated = True  # Whether remove isolated nodes(less than iso_level connects)
-different_size = True  # Nodes for different size, bigger means more shared friends
-iso_level = 10
-node_size = 40  # Default node size
+LABEL_FLAG = True  # Whether shows labels.NOTE: configure your matplotlibrc for Chinese characters.
+REMOVE_ISOLATED = True  # Whether remove isolated nodes(less than iso_level connects)
+DIFFERENT_SIZE = True  # Nodes for different size, bigger means more shared friends
+ISO_LEVEL = 10
+NODE_SIZE = 40  # Default node size
 
 
 def login(username, password):
@@ -42,7 +42,7 @@ def login(username, password):
     urllib2.install_opener(opener)
     res = opener.open(logpage, login_data)
     print "Login now ..."
-    html = res.read()
+    #html = res.read()
     #print html
 
     # Get uid
@@ -163,4 +163,4 @@ def draw_graph(username, password, filename='graph.txt', label_flag=True, remove
     return G
 
 if __name__ == "__main__":
-    G = draw_graph(username, password)
+    G = draw_graph(USERNAME, PASSWORD, filename='graph.txt', label_flag=LABEL_FLAG, remove_isolated=REMOVE_ISOLATED, different_size=DIFFERENT_SIZE, iso_level=ISO_LEVEL, node_size=NODE_SIZE)

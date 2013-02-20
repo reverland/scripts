@@ -31,7 +31,7 @@
   - Dependency: PIL
   - Usage: Provide several functions to manipulate photos, and generate photomosaic photo. More refer to the source.
   - Warning: *ALL* non-png images will be converted to png and removed. Just support jpeg/jpg/png now.
-  - Demo: [暂时在人人上，暂时的Demo](http://photo.renren.com/photo/306127150/album-857154918)
+  - [Demo](http://reverland.org/python/2013/02/19/yet-another-photomosaic-generator/)
 
 ## Bash
 

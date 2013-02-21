@@ -53,6 +53,7 @@ def drop_shadow(image, offset, border=0, shadow_color=0x444444):
 def process_image(filename, newname):
     '''convert image to png to support transparency'''
     if filename.split('.')[-1] != 'png':
+        print filename
         im = Image.open(filename)
         im.save(newname + '.png')
         print "processing image file %s" % filename
@@ -65,14 +66,20 @@ def process_directory(path):
     for filename in os.listdir(path):
         ext = filename.split('.')[-1]
         if ext == 'jpeg' or ext == 'jpg':
-            process_image(filename, str(count))
-            os.remove(filename)
-            count += 1
+            try:
+                process_image(filename, str(count))
+                os.remove(filename)
+                count += 1
+            except:
+                print "Can't process %s" % filename
+                continue
     return 1
 
 
 def thumbnail(im, size):
     """thumnail the image"""
+    if im.mode != 'RGBA':
+        im = im.convert('RGBA')
     im.thumbnail(size, Image.ANTIALIAS)
     return im
 
@@ -181,7 +188,18 @@ def paste_chaos(image, tiles, size, shadow_off_set=(30, 30)):
     return image_all
 
 
-def main(filename, n, scale, iteration, path='./'):
+def paste_classic(image, tiles, size):
+    fragment_size = (image.size[0] / size[0], image.size[1] / size[1])
+    for i in range(len(tiles)):
+        x = i % size[0] * fragment_size[0]
+        y = i / size[0] * fragment_size[1]
+        im = Image.open(tiles[i])
+        im = thumbnail(im, (fragment_size[0] * 3 / 2, fragment_size[1] * 3 / 2))
+        image.paste(im, (x, y), im)
+    return image
+
+
+def main(filename, tile_size, scale, iteration=1, style='classic', path='./'):
     # 0. select an big image for mosaic
     print "open %s" % filename
     im = Image.open(filename)
@@ -199,25 +217,30 @@ def main(filename, n, scale, iteration, path='./'):
             p.dump(dic, f)
     # 3. thumbnail the big image for compare
     print "thumbnail background for compare"
-    # n = 30  # 原始图片缩为多少分之一
+    # tile_size = 30  # 原始图片缩为多少分之一,也是每片大小
     # scale = 3  # 原始图片放大倍数
     big_size = im.size[0] * scale, im.size[1] * scale
-    im_chao = Image.new('RGB', big_size, 0xffffff)
-    imb_t_size = thumbnail_background(im, n)
+    im_big = Image.new('RGB', big_size, 0xffffff)
+    imb_t_size = thumbnail_background(im, tile_size)
     print "how may tiles: %d X %d" % imb_t_size
     print 'number of iterations: %d' % iteration
-    for i in range(iteration):
-        print 'iteration: %d' % (i + 1)
-        # 4. get a list of smail image for mosaic
-        print "get pic list"
+    if style == 'chaos':
+        for i in range(iteration):
+            print 'iteration: %d' % (i + 1)
+            # 4. get a list of smail image for mosaic
+            print "get pic list"
+            im_tiles = get_image_list(im, dic)
+            # 5. paste in chaos style
+            print "generate final image"
+            im_big = paste_chaos(im_big, im_tiles, imb_t_size)
+    elif style == 'classic':
         im_tiles = get_image_list(im, dic)
-        # 5. paste in chaos style
-        print "generate final image"
-        im_chao = paste_chaos(im_chao, im_tiles, imb_t_size)
-    return im_chao
+        im_big = paste_classic(im_big, im_tiles, imb_t_size)
+    return im_big
 
 
 if __name__ == '__main__':
-    im = main('../mm.jpg', 15, 5, 2)
+    #im = main('../mm.jpg', 30, 5, 2)
+    im = main('../mm.jpg', 30, 5)
     im.save('../final3.png')
     im.show()

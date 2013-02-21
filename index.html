@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Scripts by reverland</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>Scripts</h1>
+        <p>A collection of my scripts</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/reverland/scripts" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/reverland/scripts/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/reverland/scripts/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>Collection of scripts of me</h1>
+
+<hr><h2>Python</h2>
+
+<ul>
+<li>renren.py
+
+<ul>
+<li>A script to visualize renren friendship</li>
+<li>Dependencies: networkx matplotlib</li>
+<li>Usage: edit <code>renren.py</code> for username and password</li>
+<li><a href="http://reverland.org/python/2013/02/05/visualize-the-friendship-of-renren/">Demo</a></li>
+</ul>
+</li>
+<li>tagcloud.py 
+
+<ul>
+<li>Visualize command history as cloud tags, also available for other texts.</li>
+<li>Optional-dependencies: pytagcloud</li>
+<li>Usage: <code>history &gt;&gt; hist.txt |python tagcloud hist.txt</code>
+</li>
+<li><a href="http://reverland.org/python/2013/01/28/visualize-your-shell-history/">Demo</a></li>
+</ul>
+</li>
+<li>
+<p>captcha.py</p>
+
+<ul>
+<li>
+<p>A script to crack captchas of <code>正方教务系统</code>, trainset-included.</p>
+
+<p>Test 95 items
+Right: 95
+Wrong: 0
+Success rate: 100</p>
+</li>
+<li><p>Dependencies: PIL</p></li>
+<li><p>Usage: <code>python captcha.py file.gif</code></p></li>
+</ul>
+</li>
+<li>
+<p>getphotos.py</p>
+
+<ul>
+<li>Download photos in Renren for specific user.</li>
+<li>Usage: Provide several functions to download photos. More refer to the doc.</li>
+</ul>
+</li>
+<li>
+<p>yapmg.py </p>
+
+<ul>
+<li>Yet Another PhotoMosaic Generator written in python.*SPECIAL* for <a href="http://www.fmedda.com/en/mosaic/chaos">chaos</a> style now.</li>
+<li>Dependency: PIL</li>
+<li>Usage: Provide several functions to manipulate photos, and generate photomosaic photo. More refer to the source.</li>
+<li>Warning: <em>ALL</em> non-png images will be converted to png and removed. Just support jpeg/jpg/png now.</li>
+<li><a href="http://reverland.org/python/2013/02/19/yet-another-photomosaic-generator/">Demo</a></li>
+</ul>
+</li>
+</ul><h2>Bash</h2>
+
+<ul>
+<li>byr.sh
+
+<ul>
+<li>Telnet to bbs.byr.cn with preservation from being kicked off.</li>
+<li>Dependency: expect</li>
+<li>Usage: edit your username/password and run <code>sh byr.sh</code>
+</li>
+</ul>
+</li>
+</ul>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/reverland">reverland</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>

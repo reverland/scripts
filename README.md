@@ -27,11 +27,16 @@
   - Download photos in Renren for specific user.
   - Usage: Provide several functions to download photos. More refer to the doc.
 * yapmg.py 
-  - Yet Another PhotoMosaic Generator written in python.*SPECIAL* for [chaos](http://www.fmedda.com/en/mosaic/chaos) style now.
+  - Yet Another PhotoMosaic Generator written in python.*SPECIAL* for [chaos](http://www.fmedda.com/en/mosaic/chaos) style and classic now.
   - Dependency: PIL
   - Usage: Provide several functions to manipulate photos, and generate photomosaic photo. More refer to the source.
   - Warning: *ALL* non-png images will be converted to png and removed. Just support jpeg/jpg/png now.
   - [Demo](http://reverland.org/python/2013/02/19/yet-another-photomosaic-generator/)
+* i2a.py
+  - Image to ascii, matrix and ascii style supported.
+  - Dependency: PIL
+  - Usage: `python i2a.py filename fontsize scale style`
+  - [Demo](http://reverland.org/python/2013/02/25/generate-ascii-images-like-the-matrix/)
 
 ## Bash
 

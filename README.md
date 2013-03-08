@@ -45,6 +45,8 @@
   - Dependency: PIL
   - Usage: `python image2css.py file [ratio]`
   - [Demo](http://reverland.org/python/2013/03/07/image-to-css/)
+* xiqu.py
+  - Download Henan Opera from Henan's opera website.
 
 ## Bash
 
@@ -52,3 +54,7 @@
   - Telnet to bbs.byr.cn with preservation from being kicked off.
   - Dependency: expect
   - Usage: edit your username/password and run `sh byr.sh`
+* convert.sh[X]
+  - Convert all flv file into mp3 in current directory.
+  - Dependency: ffmpeg
+  - Usage: sh convert.sh

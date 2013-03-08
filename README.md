@@ -40,6 +40,11 @@
 * missile.py
   - Provide a class to facilitate missile flight simulation.(JUST FOR FUN!)
   - [Demo](http://reverland.org/python/2013/03/02/python/)
+* image2css.py
+  - Generate the css code to draw specific image.
+  - Dependency: PIL
+  - Usage: `python image2css.py file [ratio]`
+  - [Demo](http://reverland.org/python/2013/03/07/image-to-css/)
 
 ## Bash
 

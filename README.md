@@ -45,8 +45,9 @@
   - Dependency: PIL
   - Usage: `python image2css.py file [ratio]`
   - [Demo](http://reverland.org/python/2013/03/07/image-to-css/)
-* xiqu.py
-  - Download Henan Opera from Henan's opera website.
+* girl-atlas.py
+  - Download images from http://girl-atlas.com
+  - Usage: `python girl-atlas.py -h` ,Just support download by tag or album now.
 
 ## Bash
 

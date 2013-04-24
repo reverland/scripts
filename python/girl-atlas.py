@@ -5,6 +5,13 @@
 A little script to download images from 'http://girl-atlas.com/'
 Written for fun by Reverland(lhtlyy@gmail.com)
 Free to use and with no warranty, BSD License.
+
+试了试多线程结果不会限制连接数……
+
+结果就是……
+
+HTTPConnectionPool(host='127.0.0.1', port=1998): Max retries exceeded with url: http://girlatlas.b0.upaiyun.com/97/20130124/00539b1f575b3b305542.jpg (Caused by <class 'httplib.BadStatusLine'>: '')
+
 """
 
 # import urllib
@@ -50,7 +57,8 @@ def download(result, path):
             continue
             print "%s exists" % name
         try:
-            open(path + name, 'wb').write(urllib2.urlopen(url).read())
+            with open(path + name, 'wb') as f:
+                f.write(urllib2.urlopen(url).read())
             print ">>> %s downloaded" % name
         except Exception, e:
             print "%s" % e

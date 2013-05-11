@@ -48,6 +48,9 @@
 * girl-atlas.py
   - Download images from http://girl-atlas.com
   - Usage: `python girl-atlas.py -h` ,Just support download by tag or album now.
+* coursera.py
+  - Download videos for courses which are not download-allowed.
+  - Usage: Edit your email/password/proxy/video\_url/auth\_url in the source file
 
 ## Bash
 

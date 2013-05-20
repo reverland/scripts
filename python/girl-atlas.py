@@ -63,7 +63,7 @@ def download(result, path):
 
 
 def download_by_url(url, path='./'):
-    pattern = re.compile('<img title="([^"]+)" src=\'([^!]+)!mid\' />')
+    pattern = re.compile('<img title="([^"]+)" [a-z]+=\'([^!]+)!mid\' />')
     result = parse_image_urls(get_html(url, proxy), pattern)
     download(result, path)
 
@@ -98,13 +98,17 @@ def download_by_tags(url):
 # download_by_tags('http://girl-atlas.com/t/6')
 
 if __name__ == "__main__":
+    proxy = None
     parser.add_argument('-t', help="Download by tags,url format must be like this: 'http://girl-atlas.com/t/6'")
     parser.add_argument('-a', help="Download by albums,url format must be like this: 'http://girl-atlas.com/a/10130108074800002185'")
     parser.add_argument('-p', help="Enable proxy, like 'http://127.0.0.1:1998'")
     args = parser.parse_args()
     # print args
     if args.p:
-        proxy = {'http': args.p}
+        if re.search('http', args.p):
+            proxy = {'http': args.p}
+        else:
+            print "Not implement, No proxy used"
     if args.a:
         print ">>>Downloading from %s now" % args.a
         download_by_url(args.a)

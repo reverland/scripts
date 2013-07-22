@@ -1,7 +1,7 @@
 #! /bin/env python
 # -*- coding: utf-8 -*-
 
-"""
+u'''
 An script to crack captchas of `正方教务系统`.
 Greatly inspired by "http://www.wausita.com/captcha/"
 rewrite by reverland
@@ -17,7 +17,9 @@ Usage:
     >>> crack_buf(open('test3.gif', 'rb').read())
     u'23297'
 
-"""
+'''
+
+from __future__ import unicode_literals, division, print_function
 
 import sys
 import os
@@ -39,7 +41,7 @@ TRAINSET_FILENAME = 'trainset.json.bz2'
 
 
 def process_image(im):
-    """Get an image file and return a black-white Image object"""
+    '''Get an image file and return a black-white Image object'''
     im2 = Image.new("P", im.size, 255)
     for x in range(im.size[0]):
         for y in range(im.size[1]):
@@ -52,7 +54,7 @@ def process_image(im):
 
 def image_from_file(filename):
     im = Image.open(filename)
-    return process_image(im.convert("P"))
+    return process_image(im.convert('P'))
 
 
 def image_from_buffer(buf):
@@ -62,7 +64,7 @@ def image_from_buffer(buf):
 
 
 def find_letters(im):
-    """Find where letters begin and end"""
+    '''Find where letters begin and end'''
     inletter = False
     foundletter = False
     start = 0
@@ -85,7 +87,7 @@ def find_letters(im):
 
 
 def magnitude(lst):
-    """Calculate for magnitude of a lst"""
+    '''Calculate for magnitude of a lst'''
     total = 0
     for c in lst:
         total += c ** 2
@@ -93,8 +95,8 @@ def magnitude(lst):
 
 
 def relation(lst1, lst2):
-    """Calculate relation between two given list based on vector space theory.
-    Truncate when not the same length."""
+    '''Calculate relation between two given list based on vector space theory.
+    Truncate when not the same length.'''
     dot_multiply = 0
     if len(lst1) == len(lst2):
         for i in xrange(len(lst1)):
@@ -110,7 +112,7 @@ def relation(lst1, lst2):
 
 
 def buildvector(im):
-    """buildvector for Image object, return list"""
+    '''buildvector for Image object, return list'''
     lst = []
     for p in im.getdata():
         lst.append(p)
@@ -119,7 +121,7 @@ def buildvector(im):
 
 ## Functions to crack
 def guess(im, trainset):
-    """guess what's the image is and return a tuple (relation, character)"""
+    '''guess what's the image is and return a tuple (relation, character)'''
     guess = []
     for image in trainset:
         for k, v in image.items():
@@ -141,7 +143,7 @@ def crack_image(im):
 
 
 def crack_file(filename):
-    """receive filename and trainset, give out crack result"""
+    '''receive filename and trainset, give out crack result'''
 
     return crack_image(image_from_file(filename))
 
@@ -179,7 +181,7 @@ if __name__ == '__main__':
     load_trainset()
     for filename in sys.argv[1:]:
         result = crack_file(filename)
-        print result
+        print(result)
 
 
 # vim:set ai et ts=4 sw=4 sts=4 fenc=utf-8:

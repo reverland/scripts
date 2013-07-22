@@ -5,6 +5,18 @@
 An script to crack captchas of `正方教务系统`.
 Greatly inspired by "http://www.wausita.com/captcha/"
 rewrite by reverland
+
+Usage:
+
+    >>> load_trainset()
+    True
+    >>> crack_file(u'test1.gif')
+    u'48353'
+    >>> crack_file(u'test2.gif')
+    u'85535'
+    >>> crack_buf(open('test3.gif', 'rb').read())
+    u'23297'
+
 """
 
 import sys
@@ -12,6 +24,11 @@ import os
 import math
 import bz2
 import json
+
+try:
+    import cStringIO as StringIO
+except ImportError:
+    import StringIO
 
 from PIL import Image
 
@@ -39,7 +56,8 @@ def image_from_file(filename):
 
 
 def image_from_buffer(buf):
-    im = Image.frombuffer('P', (60, 22), buf, 'gif')
+    fp = StringIO.StringIO(buf)
+    im = Image.open(fp)
     return process_image(im)
 
 
@@ -152,10 +170,16 @@ def load_trainset(filename=TRAINSET_FILENAME):
 
 
 if __name__ == '__main__':
-    filename = sys.argv[1]
+    if len(sys.argv) == 1:
+        # run doctests
+        import doctest
+        fails, count = doctest.testmod()
+        sys.exit(0 if fails == 0 else 1)
+
     load_trainset()
-    results = crack_file(filename)
-    print results
+    for filename in sys.argv[1:]:
+        result = crack_file(filename)
+        print result
 
 
 # vim:set ai et ts=4 sw=4 sts=4 fenc=utf-8:

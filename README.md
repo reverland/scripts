@@ -14,6 +14,7 @@
   - Usage: `history >> hist.txt |python tagcloud hist.txt`
   - [Demo](http://reverland.org/python/2013/01/28/visualize-your-shell-history/)
 * captcha.py
+  - Thanks to [xenon](http://github.com/xen0n) who modularize it.
   - A script to crack captchas of `正方教务系统`, trainset-included.
 
         Test 95 items
@@ -51,6 +52,11 @@
 * coursera.py
   - Download videos for courses which are not download-allowed.
   - Usage: Edit your email/password/proxy/video\_url/auth\_url in the source file
+* agwg.py
+  - Ghost writing generator for payloads: poorly written to fool reverse enginneer and anti-virus softwares... It will generate a new file.
+  - Usage: `python agwg.py file.asm`
+* metagoofil.py
+  - I just wanna reinvent the wheels...
 
 ## Bash
 
@@ -59,6 +65,6 @@
   - Dependency: expect
   - Usage: edit your username/password and run `sh byr.sh`
 * convert.sh[X]
-  - Convert all flv file into mp3 in current directory.
+  - Convert all swf file into mp3 in current directory.(recursively) **Warning: For It will remove all swf files, may damage your data, backup before you use!**
   - Dependency: ffmpeg
   - Usage: sh convert.sh

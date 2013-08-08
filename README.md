@@ -52,11 +52,14 @@
 * coursera.py
   - Download videos for courses which are not download-allowed.
   - Usage: Edit your email/password/proxy/video\_url/auth\_url in the source file
-* agwg.py
+* agwg.a[X]
+  - Wait, I have a new idea...
   - Ghost writing generator for payloads: poorly written to fool reverse enginneer and anti-virus softwares... It will generate a new file.
   - Usage: `python agwg.py file.asm`
 * metagoofil.py
   - I just wanna reinvent the wheels...
+* 5tps.py
+  - 我听评书网交互下载脚本
 
 ## Bash
 

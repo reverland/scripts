@@ -59,7 +59,7 @@
 * metagoofil.py
   - I just wanna reinvent the wheels...
 * 5tps.py
-  - 我听评书网交互下载脚本
+  - 我听评书网交互下载脚本, 二进制打包见`exe/`下
 
 ## Bash
 

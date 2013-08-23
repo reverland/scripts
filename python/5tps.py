@@ -7,10 +7,11 @@ a script to download 评书 from www.5tps.com
 changelog:
     v0.1 initial， search api
     v0.2 warning updates pingshu
-    v0.2 fix not right parser -郭德纲
+    v0.3 fix not right parser -郭德纲
+    v0.4 fix for search url change, search results turn page won't fix.
 """
 
-__version__ = '0.2'
+__version__ = '0.4'
 __author__ = 'Liu Yuyang'
 __license__ = 'BSD'
 
@@ -53,7 +54,7 @@ class C5tps(object):
     def search(self):
         data = urllib.urlencode({'keyword': self.name.encode('gbk')})
         try:
-            res = urllib.urlopen(self.url + '/search.asp', data)
+            res = urllib.urlopen(self.url + '/so.asp', data)
             html = res.read().decode('gbk')
         except:
             html = None
